@@ -1,0 +1,19 @@
+title: Settings
+data:
+  site_name: 'Home of Things 🔥'
+  social:
+    -
+      id: hcedRlOK
+      name: Twitter
+      url: 'https://twitter.com/pepijndevos'
+      icon: site/social-icons/twitter.svg
+    -
+      id: tIG2vqNp
+      name: Github
+      url: 'https://github.com/pepijndevos/homeofthings'
+      icon: site/social-icons/github.svg
+    -
+      id: 4ZtXDt8n
+      name: Email
+      url: 'mailto:me@pepijndevos.nl'
+      icon: site/social-icons/email.svg
