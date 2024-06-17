@@ -1,0 +1,10 @@
+title: Tuya
+content: |-
+  [Tuya](https://www.tuya.com/) is a platform for building cloud-based IoT devices commonly used by brands that don't have their own platform, including many Chinese brands.
+
+  Tuya ZigBee devices can however be used with Home Assistant instead of the Tuya hub.
+
+  Some hacks exist to use Tuya WiFi devices with custom firmware or local APIs, but this is an uphill battle with ever increasing mitigations.
+updated_by: 082753cc-9bb3-461d-9de0-42dab6bb9a8d
+updated_at: 1718203598
+blueprint: platform

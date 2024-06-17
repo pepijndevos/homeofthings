@@ -1,0 +1,5 @@
+title: Ethernet
+content: 'Wired Ethernet is not as common as WiFi because it requires installing physical wiring, but does not require any pairing setup. It is often found in bigger and more industrial devices, and often features a local API such as ModBus.'
+updated_by: 082753cc-9bb3-461d-9de0-42dab6bb9a8d
+updated_at: 1718377534
+blueprint: datalink

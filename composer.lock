@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a77fdb9aa047e1d379f13fba39c80ca",
+    "content-hash": "f24f36ac303f96a6e4385331abc09655",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -4370,16 +4370,16 @@
         },
         {
             "name": "statamic/cms",
-            "version": "v5.7.2",
+            "version": "v5.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/statamic/cms.git",
-                "reference": "295255838f5fa606981f5386fd55c27a15a9f0e0"
+                "reference": "d23a167b92f08fe02ebcd935c96024759814cda9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/statamic/cms/zipball/295255838f5fa606981f5386fd55c27a15a9f0e0",
-                "reference": "295255838f5fa606981f5386fd55c27a15a9f0e0",
+                "url": "https://api.github.com/repos/statamic/cms/zipball/d23a167b92f08fe02ebcd935c96024759814cda9",
+                "reference": "d23a167b92f08fe02ebcd935c96024759814cda9",
                 "shasum": ""
             },
             "require": {
@@ -4461,7 +4461,7 @@
             ],
             "support": {
                 "issues": "https://github.com/statamic/cms/issues",
-                "source": "https://github.com/statamic/cms/tree/v5.7.2"
+                "source": "https://github.com/statamic/cms/tree/v5.7.3"
             },
             "funding": [
                 {
@@ -4469,7 +4469,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-06-06T16:09:09+00:00"
+            "time": "2024-06-13T15:16:49+00:00"
         },
         {
             "name": "statamic/stringy",

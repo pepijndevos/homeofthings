@@ -1,11 +1,13 @@
 tree:
   -
+    id: 71255c09-8d3a-4563-a491-a160a19d6baa
     entry: home
   -
+    id: c96fe1c8-70a8-4272-bd20-ef4e94315351
     entry: 62136fa2-9e5c-4c38-a894-a2753f02f5ff
   -
+    id: 2621f628-8206-4dd0-bc4b-4255b327c88d
     entry: b9e4bfe3-9c12-4553-b7ef-f43c22ffaa63
   -
-    entry: f5a53468-017e-4725-b5b6-a745df7e94cb
-  -
+    id: 3991cc1f-09d2-4cf1-a004-7fd1e945c579
     entry: fccd8533-f6bc-479f-a91b-5e65b2477483

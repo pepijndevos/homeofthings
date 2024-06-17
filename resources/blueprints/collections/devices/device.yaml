@@ -1,0 +1,52 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: device_image
+            field:
+              container: assets
+              type: assets
+              display: 'Device Image'
+          -
+            handle: content
+            field:
+              type: markdown
+              localizable: true
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: platforms
+            field:
+              type: terms
+              taxonomies:
+                - platforms
+              display: Platforms
+              mode: select
+          -
+            handle: classifications
+            field:
+              type: terms
+              taxonomies:
+                - classifications
+              display: Classifications
+              mode: select
+title: Device

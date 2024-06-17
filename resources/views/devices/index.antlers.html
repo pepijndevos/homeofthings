@@ -1,0 +1,68 @@
+<div class="max-w-5xl mx-auto relative mt-16">
+    {{ platforms = [] }}
+    {{ classifications = [] }}
+    <aside>
+        <form>
+            <input type="submit" value="Filter" />
+            <fieldset>
+                <legend>Platform</legend>
+                {{ taxonomy:platforms }}
+                    {{ key = "{taxonomy}_{slug}"}}
+                    {{? if(array_key_exists(strval($key), $_GET)) { $platforms[] = strval($slug); } ?}}
+                    <label>
+                        <input type="checkbox" name="{{ key }}" {{ if get[key] }}checked{{ /if }}>
+                        {{ title }}
+                    </label>
+                {{ /taxonomy:platforms }}
+            </fieldset>
+            <fieldset>
+                <legend>Classification</legend>
+                {{ taxonomy:classifications }}
+                    {{ key = "{taxonomy}_{slug}"}}
+                    {{? if(array_key_exists(strval($key), $_GET)) { $classifications[] = strval($slug); } ?}}
+                    <label>
+                        <input type="checkbox" name="{{ key }}" {{ if get[key] }}checked{{ /if }}>
+                        {{ title }}
+                    </label>
+                {{ /taxonomy:classifications }}
+            </fieldset>
+        </form>
+    </aside>
+    
+    <article class="py-32 max-w-2xl mx-auto">
+        <header class="content mb-16">
+            <h1>{{ title }}</h1>
+            {{ content | widont }}
+        </header>
+
+        {{ collection:devices as="devices" paginate="10"
+           taxonomy:platforms="{platforms}"
+           taxonomy:classifications="{classifications}" }}
+        {{ if no_results }}
+        <h2 class="text-2xl italic tracking-tight">No devices match your query.</h2>
+        {{ /if }}
+
+        {{ devices }}
+        <div class="mb-2">
+            <a href="{{ url }}" class="text-lg hover:text-teal tracking-tight leading-tight font-bold">
+                {{ title | widont }}
+            </a>
+        </div>
+        {{ /devices }}
+
+        {{ paginate }}
+        {{ if prev_page || next_page }}
+        <div class="flex justify-between text-xl -mx-16 pt-16 font-bold">
+            <a href="{{ prev_page }}" class="{{ ! prev_page ?= 'opacity-25' }}">
+                &larr; Previous
+            </a>
+            <a href="{{ next_page }}">
+                Next &rarr;
+            </a>
+        </div>
+        {{ /if }}
+        {{ /paginate }}
+        {{ /collection:devices }}
+    </article>
+</div>
+

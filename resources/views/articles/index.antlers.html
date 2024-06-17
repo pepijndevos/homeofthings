@@ -8,8 +8,7 @@
 
         {{ collection:articles as="articles" paginate="10" }}
         {{ if no_results }}
-        <h2 class="text-3xl italic tracking-tight">Feel the rhythm! Feel the rhyme! Get on up, it's writing time! Cool
-            writings!</h2>
+        <h2 class="text-3xl italic tracking-tight">Nothing to see here.</h2>
         {{ /if }}
 
         {{ articles }}
@@ -24,10 +23,10 @@
         {{ if prev_page || next_page }}
         <div class="flex justify-between text-xl -mx-16 pt-16 font-bold">
             <a href="{{ prev_page }}" class="{{ ! prev_page ?= 'opacity-25' }}">
-                &larr; Back to the future
+                &larr; Previous
             </a>
             <a href="{{ next_page }}">
-                Forward to the past &rarr;
+                Next &rarr;
             </a>
         </div>
         {{ /if }}

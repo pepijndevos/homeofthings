@@ -1,0 +1,5 @@
+title: ESPHome
+content: '[ESPHome](https://esphome.io/) is a popular platform to build DIY WiFi IoT devices for Home Assistant'
+updated_by: 082753cc-9bb3-461d-9de0-42dab6bb9a8d
+updated_at: 1718203250
+blueprint: platform

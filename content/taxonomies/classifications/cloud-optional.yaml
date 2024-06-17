@@ -1,0 +1,5 @@
+title: 'Cloud (optional)'
+content: 'This device has a cloud-based API that is not required for complete functionality and can be disabled.'
+updated_by: 082753cc-9bb3-461d-9de0-42dab6bb9a8d
+updated_at: 1718204419
+blueprint: classification

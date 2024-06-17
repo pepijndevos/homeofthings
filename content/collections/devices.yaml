@@ -1,0 +1,20 @@
+title: Devices
+template: devices/show
+layout: layout
+taxonomies:
+  - platforms
+  - classifications
+  - datalinks
+  - categories
+  - brands
+revisions: false
+route: '/device/{slug}'
+sort_dir: asc
+date_behavior:
+  past: public
+  future: private
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'
+    refresh: true

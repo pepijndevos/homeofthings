@@ -1,0 +1,5 @@
+title: ZigBee
+content: 'A wireless protocol specifically designed for IoT devices, with built in pairing and discovery. ZigBee devices do not directly connect to the internet but rather connect to a hub. Many vendors provide proprietary hubs that work with a cloud service, but many devices are supported by ZHA or ZigBee2MQTT.'
+updated_by: 082753cc-9bb3-461d-9de0-42dab6bb9a8d
+updated_at: 1718377179
+blueprint: datalink

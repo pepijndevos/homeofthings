@@ -1,0 +1,5 @@
+title: Bluetooth
+content: 'Bluetooth is not primarily an IoT protocol, but in particular Bluetooth Low Energy (BLE) is commonly used in low bandwidth sensors. Bluetooth devices do not directly access the internet but need to be paired to some type of hub.'
+updated_by: 082753cc-9bb3-461d-9de0-42dab6bb9a8d
+updated_at: 1718377366
+blueprint: datalink
