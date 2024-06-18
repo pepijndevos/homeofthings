@@ -7,6 +7,12 @@ platforms:
 classifications:
   - local
 updated_by: 082753cc-9bb3-461d-9de0-42dab6bb9a8d
-updated_at: 1718205556
+updated_at: 1718733580
+datalinks:
+  - wifi
+categories:
+  - smart-meter
+brands:
+  - philips
 ---
 A cool product that uses ESPHome

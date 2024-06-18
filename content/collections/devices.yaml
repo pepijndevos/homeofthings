@@ -1,6 +1,7 @@
 title: Devices
 template: devices/show
 layout: layout
+mount: fccd8533-f6bc-479f-a91b-5e65b2477483
 taxonomies:
   - platforms
   - classifications

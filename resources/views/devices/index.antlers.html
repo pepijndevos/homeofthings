@@ -1,41 +1,60 @@
+<nav class="max-w-5xl mx-auto relative">
+    <ul class="bg-gray-100 py-3 px-3">
+        <li class="block mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-12">
+            <a href="/devices">All devices</a>
+        </li>
+        {{ taxonomy:categories }}
+        <li class="block mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-12">
+            <a href="{{ url }}">
+                {{ title }}
+            </a>
+        </li>
+        {{ /taxonomy:categories }}
+    </ul>
+</nav>
 <div class="max-w-5xl mx-auto relative mt-16">
     {{ platforms = [] }}
     {{ classifications = [] }}
     <aside>
-        <form>
-            <input type="submit" value="Filter" />
+        <form class="flex gap-4">
+            <div>
+                <input type="submit" value="Filter"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" />
+            </div>
             <fieldset>
-                <legend>Platform</legend>
+                <legend class="font-bold">Platform</legend>
                 {{ taxonomy:platforms }}
-                    {{ key = "{taxonomy}_{slug}"}}
-                    {{? if(array_key_exists(strval($key), $_GET)) { $platforms[] = strval($slug); } ?}}
-                    <label>
-                        <input type="checkbox" name="{{ key }}" {{ if get[key] }}checked{{ /if }}>
-                        {{ title }}
-                    </label>
+                {{ key = "{taxonomy}_{slug}"}}
+                {{? if(array_key_exists(strval($key), $_GET)) { $platforms[] = strval($slug); } ?}}
+                <label class="block">
+                    <input type="checkbox" name="{{ key }}" {{ if get[key] }}checked{{ /if }}>
+                    {{ title }}
+                </label>
                 {{ /taxonomy:platforms }}
             </fieldset>
             <fieldset>
-                <legend>Classification</legend>
+                <legend class="font-bold">Classification</legend>
                 {{ taxonomy:classifications }}
-                    {{ key = "{taxonomy}_{slug}"}}
-                    {{? if(array_key_exists(strval($key), $_GET)) { $classifications[] = strval($slug); } ?}}
-                    <label>
-                        <input type="checkbox" name="{{ key }}" {{ if get[key] }}checked{{ /if }}>
-                        {{ title }}
-                    </label>
+                {{ key = "{taxonomy}_{slug}"}}
+                {{? if(array_key_exists(strval($key), $_GET)) { $classifications[] = strval($slug); } ?}}
+                <label class="block">
+                    <input type="checkbox" name="{{ key }}" {{ if get[key] }}checked{{ /if }}>
+                    {{ title }}
+                </label>
                 {{ /taxonomy:classifications }}
             </fieldset>
         </form>
     </aside>
-    
-    <article class="py-32 max-w-2xl mx-auto">
+    </aside>
+
+    <article class="py-5">
         <header class="content mb-16">
             <h1>{{ title }}</h1>
             {{ content | widont }}
         </header>
 
         {{ collection:devices as="devices" paginate="10"
+           taxonomy:categories="{is_term ? slug : void}"
            taxonomy:platforms="{platforms}"
            taxonomy:classifications="{classifications}" }}
         {{ if no_results }}

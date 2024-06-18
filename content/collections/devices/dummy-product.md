@@ -7,6 +7,12 @@ platforms:
 classifications:
   - cloud-required
 updated_by: 082753cc-9bb3-461d-9de0-42dab6bb9a8d
-updated_at: 1718205489
+updated_at: 1718733592
+datalinks:
+  - zigbee
+categories:
+  - smart-meter
+brands:
+  - sonoff
 ---
 Some cloudy Tuya thing
