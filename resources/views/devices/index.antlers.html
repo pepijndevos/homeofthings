@@ -13,61 +13,85 @@
     </ul>
 </nav>
 <div class="max-w-5xl mx-auto relative mt-16">
-    {{ platforms = [] }}
-    {{ classifications = [] }}
-    <aside>
-        <form class="flex gap-4">
-            <div>
-                <input type="submit" value="Filter"
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" />
-            </div>
-            <fieldset>
-                <legend class="font-bold">Platform</legend>
-                {{ taxonomy:platforms }}
-                {{ key = "{taxonomy}_{slug}"}}
-                {{? if(array_key_exists(strval($key), $_GET)) { $platforms[] = strval($slug); } ?}}
-                <label class="block">
-                    <input type="checkbox" name="{{ key }}" {{ if get[key] }}checked{{ /if }}>
-                    {{ title }}
-                </label>
-                {{ /taxonomy:platforms }}
-            </fieldset>
-            <fieldset>
-                <legend class="font-bold">Classification</legend>
-                {{ taxonomy:classifications }}
-                {{ key = "{taxonomy}_{slug}"}}
-                {{? if(array_key_exists(strval($key), $_GET)) { $classifications[] = strval($slug); } ?}}
-                <label class="block">
-                    <input type="checkbox" name="{{ key }}" {{ if get[key] }}checked{{ /if }}>
-                    {{ title }}
-                </label>
-                {{ /taxonomy:classifications }}
-            </fieldset>
-        </form>
-    </aside>
-    </aside>
-
     <article class="py-5">
         <header class="content mb-16">
             <h1>{{ title }}</h1>
             {{ content | widont }}
         </header>
 
+        {{ taxkeys = [] }}
+        <form class="flex gap-4 mb-16">
+            <div>
+                <input type="submit" value="Filter"
+                    class="bg-teal hover:bg-teal-light text-white font-bold py-2 px-4 rounded" />
+            </div>
+            {{ partial:taxbox taxslug="brands" taxtitle="Brands" }}
+            {{ partial:taxbox taxslug="datalinks" taxtitle="Datalinks" }}
+            {{ partial:taxbox taxslug="platforms" taxtitle="Platforms" }}
+            {{ partial:taxbox taxslug="classifications" taxtitle="Classifications" }}
+        </form>
+
         {{ collection:devices as="devices" paginate="10"
            taxonomy:categories="{is_term ? slug : void}"
-           taxonomy:platforms="{platforms}"
-           taxonomy:classifications="{classifications}" }}
+           taxonomy:platforms="{taxkeys["platforms"]}"
+           taxonomy:brands="{taxkeys["brands"]}"
+           taxonomy:datalinks="{taxkeys["datalinks"]}"
+           taxonomy:classifications="{taxkeys["classifications"]}" }}
         {{ if no_results }}
         <h2 class="text-2xl italic tracking-tight">No devices match your query.</h2>
         {{ /if }}
 
-        {{ devices }}
-        <div class="mb-2">
-            <a href="{{ url }}" class="text-lg hover:text-teal tracking-tight leading-tight font-bold">
-                {{ title | widont }}
-            </a>
-        </div>
-        {{ /devices }}
+        <table class="w-full text-left">
+            <thead>
+                <tr class="border-b"><th>Image</th><th>Device</th><th>Brand</th><th>Datalink</th><th>Platform</th><th>Classification</th></tr>
+            </thead>
+            <tbody>
+                {{ devices }}
+                <tr class="border-b">
+                    <td>
+                        <a href="{{ url }}">
+                        {{ device_image }}
+                        <img src="{{ glide preset="thumbnail" :src="url" }}" alt="{{alt}}">
+                        {{ /device_image }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ url }}" class="hover:text-teal">
+                            {{ title | widont }}
+                        </a>
+                    </td>
+                    <td>
+                        {{ brands }}
+                            <a href="{{url}}" class="hover:text-teal">
+                                {{title}}
+                            </a>
+                        {{ /brands }}
+                    </td>
+                    <td>
+                        {{ datalinks }}
+                            <a href="{{url}}" class="hover:text-teal">
+                                {{title}}
+                            </a>
+                        {{ /datalinks }}
+                    </td>
+                    <td>
+                        {{ platforms }}
+                            <a href="{{url}}" class="hover:text-teal">
+                                {{title}}
+                            </a>
+                        {{ /platforms }}
+                    </td>
+                    <td>
+                        {{ classifications }}
+                            <a href="{{url}}" class="hover:text-teal">
+                                {{title}}
+                            </a>
+                        {{ /classifications }}
+                    </td>
+                </tr>
+                {{ /devices }}
+            </tbody>
+        </table>
 
         {{ paginate }}
         {{ if prev_page || next_page }}

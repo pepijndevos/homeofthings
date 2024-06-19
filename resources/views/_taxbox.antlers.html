@@ -1,0 +1,11 @@
+<fieldset>
+    <legend class="font-bold">{{ taxtitle }}</legend>
+    {{ taxonomy from="{taxslug}" }}
+        {{ key = "{taxonomy}_{slug}"}}
+        {{? if(array_key_exists(strval($key), $_GET)) { $taxkeys[$taxslug][] = strval($slug); } ?}}
+        <label class="block">
+            <input type="checkbox" class="accent-teal" name="{{ key }}" {{ if get[key] }}checked{{ /if }}>
+            {{ title }}
+        </label>
+    {{ /taxonomy }}
+</fieldset>
