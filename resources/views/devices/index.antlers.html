@@ -29,6 +29,7 @@
             {{ partial:taxbox taxslug="datalinks" taxtitle="Datalinks" }}
             {{ partial:taxbox taxslug="platforms" taxtitle="Platforms" }}
             {{ partial:taxbox taxslug="classifications" taxtitle="Classifications" }}
+            {{ partial:taxbox taxslug="power" taxtitle="Power" }}
         </form>
 
         {{ collection:devices as="devices" paginate="10"
@@ -36,6 +37,7 @@
            taxonomy:platforms="{taxkeys["platforms"]}"
            taxonomy:brands="{taxkeys["brands"]}"
            taxonomy:datalinks="{taxkeys["datalinks"]}"
+           taxonomy:power="{taxkeys["power"]}"
            taxonomy:classifications="{taxkeys["classifications"]}" }}
         {{ if no_results }}
         <h2 class="text-2xl italic tracking-tight">No devices match your query.</h2>
@@ -43,7 +45,7 @@
 
         <table class="w-full text-left">
             <thead>
-                <tr class="border-b"><th>Image</th><th>Device</th><th>Brand</th><th>Datalink</th><th>Platform</th><th>Classification</th></tr>
+                <tr class="border-b"><th>Image</th><th>Device</th><th>Brand</th><th>Datalink</th><th>Platform</th><th>Classification</th><th>Power</th></tr>
             </thead>
             <tbody>
                 {{ devices }}
@@ -87,6 +89,13 @@
                                 {{title}}
                             </a>
                         {{ /classifications }}
+                    </td>
+                    <td>
+                        {{ power }}
+                            <a href="{{url}}" class="hover:text-teal">
+                                {{title}}
+                            </a>
+                        {{ /power }}
                     </td>
                 </tr>
                 {{ /devices }}

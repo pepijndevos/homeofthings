@@ -8,12 +8,14 @@ classifications:
   - cloud-required
   - local
 updated_by: 082753cc-9bb3-461d-9de0-42dab6bb9a8d
-updated_at: 1718817819
+updated_at: 1719057165
 datalinks:
   - zigbee
 categories:
   - smart-meter
 brands:
   - sonoff
+power:
+  - batteries-replaceable
 ---
 Some cloudy Tuya thing

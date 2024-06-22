@@ -7,7 +7,7 @@ platforms:
 classifications:
   - local
 updated_by: 082753cc-9bb3-461d-9de0-42dab6bb9a8d
-updated_at: 1718814287
+updated_at: 1719057157
 datalinks:
   - wifi
 categories:
@@ -16,5 +16,8 @@ brands:
   - philips
 device_image:
   - ezgif-7-777fe5a024.gif
+power:
+  - mains
+  - poe
 ---
 A cool product that uses ESPHome

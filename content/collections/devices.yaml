@@ -8,6 +8,7 @@ taxonomies:
   - datalinks
   - categories
   - brands
+  - power
 revisions: false
 route: '/device/{slug}'
 sort_dir: asc

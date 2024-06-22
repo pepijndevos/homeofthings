@@ -1,0 +1,9 @@
+title: Power
+preview_targets:
+  -
+    label: Term
+    url: '{permalink}'
+    refresh: true
+template: devtags/index
+term_template: devtags/show
+layout: layout
