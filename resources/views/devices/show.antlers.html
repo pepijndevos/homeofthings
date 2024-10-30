@@ -1,9 +1,86 @@
 <div class="max-w-5xl mx-auto relative mt-16 content">
-    {{ svg src="/assets/site/scratches" class="absolute text-gray-800 mt-8 top-0 left-0 w-20 hidden md:block" }}
-    <article class="lg:py-32 max-w-2xl mx-auto">
-        <h1>{{ title }}</h1>
-        <div class="content">
+    <article class="py-5 md:grid grid-cols-3 gap-4">
+        <h1 class="col-span-3">{{ title }}</h1>
+        <div>
+        {{ glide :src="device_image" width="300" height="300" }}
+            <img src="{{ url }}" width="{{ width }}" height="{{ height }}">
+        {{ /glide }}
+        <div class="shopping">
+            <div class="text-lg font-bold">Buy from</div>
+            <ul class="list-disc">
+                {{ foreach:shopping_links }}
+                    <li><a href="{{ value }}">{{ key }}</a></li>
+                {{ /foreach:shopping_links }}
+            </ul>
+        </div>
+        <div class="taxonomies">
+            <div class="text-lg font-bold">Specifications</div>
+            <table>
+                <tr>
+                    <td class="pr-4">Platform</td>
+                    <td>
+                    {{ platforms }}
+                        <a href="{{ url }}">{{ title }}</a>
+                    {{ /platforms }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pr-4">Classification</td>
+                    <td>
+                    {{ classifications }}
+                        <a href="{{ url }}">{{ title }}</a>
+                    {{ /classifications }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pr-4">Datalink</td>
+                    <td>
+                    {{ datalinks }}
+                        <a href="{{ url }}">{{ title }}</a>
+                    {{ /datalinks }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pr-4">Category</td>
+                    <td>
+                    {{ categories }}
+                        <a href="{{ url }}">{{ title }}</a>
+                    {{ /categories }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pr-4">Brand</td>
+                    <td>
+                    {{ brands }}
+                        <a href="{{ url }}">{{ title }}</a>
+                    {{ /brands }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pr-4">Power</td>
+                    <td>
+                    {{ power }}
+                        <a href="{{ url }}">{{ title }}</a>
+                    {{ /power }}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        </div>
+        <div class="content col-span-2">
             {{ content | widont }}
         </div>
+        <div class="col-span-3 text-lg font-bold">Reviews</div>
+        {{ reviews }}
+        <div class="review">
+            {{ if video | is_embeddable }}
+                <!-- Youtube and Vimeo -->
+                <iframe src="{{ video | embed_url }}" style="width:100%; aspect-ratio: 16 / 9;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            {{ else }}
+                <!-- Other HTML5 video types -->
+                <video src="{{ video | embed_url }}" style="width:100%; aspect-ratio: 16 / 9;"></video>
+            {{ /if }}
+        </div>
+        {{ /reviews }}
     </article>
 </div>

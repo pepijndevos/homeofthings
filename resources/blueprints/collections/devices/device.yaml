@@ -22,6 +22,22 @@ tabs:
             field:
               type: markdown
               localizable: true
+          -
+            handle: reviews
+            field:
+              type: grid
+              display: Reviews
+              fields:
+                -
+                  handle: video
+                  field:
+                    type: video
+                    display: Video
+          -
+            handle: shopping_links
+            field:
+              type: array
+              display: Shopping_links
   sidebar:
     display: Sidebar
     sections:
@@ -48,5 +64,37 @@ tabs:
               taxonomies:
                 - classifications
               display: Classifications
+              mode: select
+          -
+            handle: datalinks
+            field:
+              type: terms
+              taxonomies:
+                - datalinks
+              display: Datalinks
+              mode: select
+          -
+            handle: categories
+            field:
+              type: terms
+              taxonomies:
+                - categories
+              display: Categories
+              mode: select
+          -
+            handle: brands
+            field:
+              type: terms
+              taxonomies:
+                - brands
+              display: Brands
+              mode: select
+          -
+            handle: power
+            field:
+              type: terms
+              taxonomies:
+                - power
+              display: Power
               mode: select
 title: Device
