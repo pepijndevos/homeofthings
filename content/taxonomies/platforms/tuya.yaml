@@ -4,7 +4,14 @@ content: |-
 
   Tuya ZigBee devices can however be used with Home Assistant instead of the Tuya hub.
 
-  Some hacks exist to use Tuya WiFi devices with custom firmware or local APIs, but this is an uphill battle with ever increasing mitigations.
+  Some third party solutions exist to use Tuya WiFi devices with custom firmware or local APIs, but these can be unreliable.
+
+  ### Home Assistant integrations
+  - [Tuya](https://www.home-assistant.io/integrations/tuya/)
+  - [Tuya Local](https://github.com/make-all/tuya-local)
+  - [Local Tuya](https://github.com/rospogrigio/localtuya)
+  - [Zigbee Home Automation](https://www.home-assistant.io/integrations/zha/)
+  - [zigbee2mqtt](https://github.com/zigbee2mqtt/hassio-zigbee2mqtt)
 updated_by: 082753cc-9bb3-461d-9de0-42dab6bb9a8d
-updated_at: 1718203598
+updated_at: 1730453384
 blueprint: platform

@@ -45,7 +45,7 @@
 
         <table class="w-full text-left">
             <thead>
-                <tr class="border-b"><th>Image</th><th>Device</th><th>Brand</th><th>Datalink</th><th>Platform</th><th>Classification</th><th>Power</th></tr>
+                <tr class="border-b"><th>Image</th><th>Brand</th><th>Device</th><th>Datalink</th><th>Platform</th><th>Classification</th><th>Power</th></tr>
             </thead>
             <tbody>
                 {{ devices }}
@@ -58,44 +58,54 @@
                         </a>
                     </td>
                     <td>
+                        {{ if brands }}
+                            {{ brands }}
+                                <a href="{{url}}" class="hover:text-teal">
+                                    {{title}}
+                                </a>
+                            {{ /brands }}
+                        {{ /if }}
+                    </td>
+                    <td>
                         <a href="{{ url }}" class="hover:text-teal">
                             {{ title | widont }}
                         </a>
                     </td>
                     <td>
-                        {{ brands }}
-                            <a href="{{url}}" class="hover:text-teal">
-                                {{title}}
-                            </a>
-                        {{ /brands }}
+                        {{ if datalinks }}
+                            {{ datalinks }}
+                                <a href="{{url}}" class="hover:text-teal">
+                                    {{title}}
+                                </a>
+                            {{ /datalinks }}
+                        {{ /if }}
                     </td>
                     <td>
-                        {{ datalinks }}
-                            <a href="{{url}}" class="hover:text-teal">
-                                {{title}}
-                            </a>
-                        {{ /datalinks }}
+                        {{ if platforms }}
+                            {{ platforms }}
+                                <a href="{{url}}" class="hover:text-teal">
+                                    {{title}}
+                                </a>
+                            {{ /platforms }}
+                        {{ /if }}
                     </td>
                     <td>
-                        {{ platforms }}
-                            <a href="{{url}}" class="hover:text-teal">
-                                {{title}}
-                            </a>
-                        {{ /platforms }}
+                        {{ if classifications }}
+                            {{ classifications }}
+                                <a href="{{url}}" class="hover:text-teal">
+                                    {{title}}
+                                </a>
+                            {{ /classifications }}
+                        {{ /if }}
                     </td>
                     <td>
-                        {{ classifications }}
-                            <a href="{{url}}" class="hover:text-teal">
-                                {{title}}
-                            </a>
-                        {{ /classifications }}
-                    </td>
-                    <td>
-                        {{ power }}
-                            <a href="{{url}}" class="hover:text-teal">
-                                {{title}}
-                            </a>
-                        {{ /power }}
+                        {{ if power }}
+                            {{ power }}
+                                <a href="{{url}}" class="hover:text-teal">
+                                    {{title}}
+                                </a>
+                            {{ /power }}
+                        {{ /if }}
                     </td>
                 </tr>
                 {{ /devices }}

@@ -1,0 +1,8 @@
+title: 'BDR Thermea'
+content: |-
+  The BDR Thermea Group is a European manufacturer and distributor of domestic and commercial water and space heating systems. Its brands include Baxi, De Dietrich Remeha, Brötje, Chappée and Baymak.
+
+  Reportedly, they all share a common API, supported by the unofficial [Remeha Home](https://github.com/msvisser/remeha_home) integration.
+updated_by: 082753cc-9bb3-461d-9de0-42dab6bb9a8d
+updated_at: 1730467084
+blueprint: platform

@@ -1,10 +1,16 @@
 <div class="max-w-5xl mx-auto relative mt-16 content">
     <article class="py-5 md:grid grid-cols-3 gap-4">
-        <h1 class="col-span-3">{{ title }}</h1>
+        <h1 class="col-span-3">
+            {{ brands }}
+                {{ title }}
+            {{ /brands }}
+            {{ title }}
+        </h1>
         <div>
         {{ glide :src="device_image" width="300" height="300" }}
             <img src="{{ url }}" width="{{ width }}" height="{{ height }}">
         {{ /glide }}
+        {{ if shopping_links}}
         <div class="shopping">
             <div class="text-lg font-bold">Buy from</div>
             <ul class="list-disc">
@@ -13,9 +19,11 @@
                 {{ /foreach:shopping_links }}
             </ul>
         </div>
+        {{ /if }}
         <div class="taxonomies">
             <div class="text-lg font-bold">Specifications</div>
             <table>
+                {{ if platforms }}
                 <tr>
                     <td class="pr-4">Platform</td>
                     <td>
@@ -24,6 +32,8 @@
                     {{ /platforms }}
                     </td>
                 </tr>
+                {{ /if }}
+                {{ if classifications}}
                 <tr>
                     <td class="pr-4">Classification</td>
                     <td>
@@ -32,6 +42,8 @@
                     {{ /classifications }}
                     </td>
                 </tr>
+                {{ /if }}
+                {{ if datalinks}}
                 <tr>
                     <td class="pr-4">Datalink</td>
                     <td>
@@ -40,6 +52,8 @@
                     {{ /datalinks }}
                     </td>
                 </tr>
+                {{ /if }}
+                {{ if categories}}
                 <tr>
                     <td class="pr-4">Category</td>
                     <td>
@@ -48,6 +62,8 @@
                     {{ /categories }}
                     </td>
                 </tr>
+                {{ /if }}
+                {{ if brands}}
                 <tr>
                     <td class="pr-4">Brand</td>
                     <td>
@@ -56,6 +72,8 @@
                     {{ /brands }}
                     </td>
                 </tr>
+                {{ /if }}
+                {{ if power}}
                 <tr>
                     <td class="pr-4">Power</td>
                     <td>
@@ -64,6 +82,7 @@
                     {{ /power }}
                     </td>
                 </tr>
+                {{ /if }}
             </table>
         </div>
         </div>
