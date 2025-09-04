@@ -34,13 +34,13 @@
 <div class="max-w-5xl mx-auto mb-32">
     {{ if year && month }}
         {{ 
-            since_date = year + '-' + month + '-01';
-            until_date = year + '-' + month + '-31';
+            since_date = year + '-' + month + ' last day of previous month';
+            until_date = year + '-' + month + ' first day of next month';
         }}
     {{ elseif year }}
         {{ 
-            since_date = year + '-01-01';
-            until_date = year + '-12-31';
+            since_date = year + ' last day of previous year';
+            until_date = year + ' first day of next year';
         }}
     {{ else }}
         {{ 

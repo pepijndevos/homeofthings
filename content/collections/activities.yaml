@@ -1,8 +1,6 @@
 title: Activities
-dated: true
 template: activities/show
 layout: layout
-handle: activities
 mount: fccd8533-f6bc-479f-a91b-5e65b2477483
 taxonomies:
   - students
@@ -10,10 +8,8 @@ taxonomies:
   - subjects
 revisions: false
 route: '/activity/{slug}'
+date: true
 sort_dir: desc
-date_behavior:
-  past: public
-  future: public
 preview_targets:
   -
     label: Entry
