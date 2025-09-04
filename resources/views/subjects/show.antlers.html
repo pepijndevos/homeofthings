@@ -1,0 +1,113 @@
+<div class="max-w-5xl mx-auto relative mt-16 content">
+    <article class="pt-16 max-w-2xl mx-auto content">
+        <div class="mb-4">
+            <nav class="text-sm text-gray-600">
+                <a href="/subjects" class="hover:text-purple-600">Subjects</a> › 
+                <span class="text-gray-800">{{ title }}</span>
+            </nav>
+        </div>
+        
+        <p class="font-medium text-purple-600 mb-0">Activities in</p>
+        <h1>{{ title }}</h1>
+        {{ content }}
+    </article>
+</div>
+
+<div class="max-w-5xl mx-auto mb-32">
+    <!-- Archive Navigation -->
+    {{ subject_slug = slug }}
+    
+    <!-- Years Navigation -->
+    {{ collection:activities taxonomy:subjects="{{ slug }}" as="year_activities" }}
+        {{ year_activities group_by="date|Y" }}
+            <div class="mb-8">
+                <h2 class="text-lg font-semibold text-gray-700 mb-4">Browse by Year:</h2>
+                <div class="flex flex-wrap gap-3">
+                    {{ groups }}
+                    <a href="/subjects/{{ subject_slug }}/{{ group }}" class="px-4 py-2 bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 transition-colors">
+                        {{ group }} <span class="text-sm">({{ items | length }})</span>
+                    </a>
+                    {{ /groups }}
+                </div>
+            </div>
+        {{ /year_activities }}
+    {{ /collection:activities }}
+    
+    <!-- Monthly Activities -->
+    {{ collection:activities taxonomy:subjects="{{ slug }}" as="activities" }}
+        {{ activities group_by="date|F Y" }}
+            {{ groups }}
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-purple-600 mb-4">
+                    {{ items }}{{ if first }}
+                    <a href="/subjects/{{ subject_slug }}/{{ date | format('Y') }}/{{ date | format('m') }}" class="hover:underline">
+                        {{ group }}
+                    </a>
+                    {{ /if }}{{ /items }}
+                    <span class="text-sm text-gray-500 font-normal ml-2">({{ items | length }} {{ items | length == 1 ? 'activity' : 'activities' }})</span>
+                </h3>
+                
+                <div class="grid gap-4">
+                    {{ items sort="date:desc" limit="5" }}
+                    <div class="border-l-4 border-purple-400 bg-purple-50 p-4 rounded-r-lg">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-lg font-semibold">
+                                <a href="{{ url }}" class="hover:text-purple-600">{{ title }}</a>
+                            </h4>
+                            <time class="text-gray-500 text-sm">{{ date format="M j, Y" }}</time>
+                        </div>
+                        
+                        <div class="flex gap-4 text-sm text-gray-600 mb-2">
+                            {{ if students }}
+                            <div>
+                                <span class="font-semibold">Students:</span>
+                                {{ students }}
+                                    <a href="/students/{{ slug }}" class="text-blue-600 hover:underline">{{ title }}</a>{{ unless last }}, {{ /unless }}
+                                {{ /students }}
+                            </div>
+                            {{ /if }}
+                            
+                            {{ if teachers }}
+                            <div>
+                                <span class="font-semibold">Teachers:</span>
+                                {{ teachers }}
+                                    <a href="/teachers/{{ slug }}" class="text-green-600 hover:underline">{{ title }}</a>{{ unless last }}, {{ /unless }}
+                                {{ /teachers }}
+                            </div>
+                            {{ /if }}
+                        </div>
+                        
+                        {{ if notes }}
+                        <div class="text-sm italic text-gray-700 mb-2">
+                            "{{ notes | truncate:100 }}"
+                        </div>
+                        {{ /if }}
+                        
+                        <div class="text-gray-700">
+                            {{ content | strip_tags | truncate:150 }}
+                        </div>
+                    </div>
+                    {{ /items }}
+                    
+                    {{ if items | length > 5 }}
+                    <div class="text-center">
+                        {{ items }}{{ if first }}
+                        <a href="/subjects/{{ subject_slug }}/{{ date | format('Y') }}/{{ date | format('m') }}" class="text-purple-600 hover:underline text-sm">
+                            View all {{ items | length }} activities from {{ group }} →
+                        </a>
+                        {{ /if }}{{ /items }}
+                    </div>
+                    {{ /if }}
+                </div>
+            </div>
+            {{ /groups }}
+        {{ /activities }}
+    {{ /collection:activities }}
+
+    {{ if no_results }}
+    <div class="text-center py-16">
+        <h3 class="text-xl text-gray-500 mb-4">No activities found</h3>
+        <p class="text-gray-400">No activities found in {{ title }} yet.</p>
+    </div>
+    {{ /if }}
+</div>

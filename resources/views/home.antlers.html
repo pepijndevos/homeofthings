@@ -5,24 +5,62 @@
     </article>
 </div>
 
-<div class="max-w-2xl mx-auto mb-32">
-    {{ collection:articles limit="5" as="articles" }}
-        {{ if no_results }}
-            <h2 class="text-3xl italic tracking-tight">Feel the rhythm! Feel the rhyme! Get on up, it's writing time! Cool writings!</h2>
-        {{ /if }}
-
-        {{ articles }}
-            <div class="mb-16">
-                <h2 class="mb-4">
-                    <a href="{{ url }}" class="text-2xl hover:text-teal tracking-tight leading-tight font-bold">
-                        {{ title | widont }}
-                    </a>
-                </h2>
-                <p class="text-gray-600">
-                    <span class="text-gray-800 text-sm uppercase tracking-widest font-medium">{{ date }}</span> &mdash;
-                    {{ excerpt | widont ?? content | strip_tags | safe_truncate(150, '...') }}
-                </p>
+<div class="max-w-5xl mx-auto mb-32">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div class="bg-blue-50 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold text-blue-800 mb-4">Recent Activities</h3>
+            {{ collection:activities limit="3" sort="date:desc" as="recent_activities" }}
+            {{ recent_activities }}
+            <div class="mb-4 pb-4 border-b border-blue-200">
+                <a href="{{ url }}" class="text-blue-600 hover:underline font-medium">{{ title | truncate:40 }}</a>
+                <div class="text-sm text-gray-600 mt-1">
+                    {{ date format="M j" }} | {{ duration ?? 0 }}min
+                </div>
             </div>
+            {{ /recent_activities }}
+            {{ /collection:activities }}
+            <a href="/activities" class="text-blue-600 hover:underline text-sm">View all activities →</a>
+        </div>
+
+        <div class="bg-green-50 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold text-green-800 mb-4">Active Teachers</h3>
+            {{ taxonomy:teachers limit="4" }}
+            <div class="mb-2">
+                <a href="/teachers/{{ slug }}" class="text-green-600 hover:underline">{{ title }}</a>
+            </div>
+            {{ /taxonomy:teachers }}
+            <a href="/teachers" class="text-green-600 hover:underline text-sm">View all teachers →</a>
+        </div>
+
+        <div class="bg-purple-50 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold text-purple-800 mb-4">Popular Subjects</h3>
+            {{ taxonomy:subjects limit="4" }}
+            <div class="mb-2">
+                <a href="/subjects/{{ slug }}" class="text-purple-600 hover:underline">{{ title }}</a>
+            </div>
+            {{ /taxonomy:subjects }}
+            <a href="/subjects" class="text-purple-600 hover:underline text-sm">View all subjects →</a>
+        </div>
+    </div>
+
+    {{ collection:articles limit="3" as="articles" }}
+    {{ if articles }}
+    <div class="border-t pt-16">
+        <h2 class="text-2xl font-bold mb-8">Latest Articles</h2>
+        {{ articles }}
+        <div class="mb-8">
+            <h3 class="mb-2">
+                <a href="{{ url }}" class="text-xl hover:text-teal tracking-tight leading-tight font-semibold">
+                    {{ title | widont }}
+                </a>
+            </h3>
+            <p class="text-gray-600">
+                <span class="text-gray-800 text-sm uppercase tracking-widest font-medium">{{ date format="M j, Y" }}</span> —
+                {{ excerpt | widont ?? content | strip_tags | safe_truncate(120, '...') }}
+            </p>
+        </div>
         {{ /articles }}
+    </div>
+    {{ /if }}
     {{ /collection:articles }}
 </div>

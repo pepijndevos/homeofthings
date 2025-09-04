@@ -1,0 +1,78 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+              display: Activity Title
+          -
+            handle: content
+            field:
+              type: markdown
+              localizable: true
+              display: Activity Description
+          -
+            handle: date
+            field:
+              type: date
+              display: Activity Date
+              required: true
+              validate:
+                - required
+          -
+            handle: duration
+            field:
+              type: integer
+              display: Duration (minutes)
+              instructions: How long did this activity take?
+          -
+            handle: notes
+            field:
+              type: textarea
+              display: Additional Notes
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: students
+            field:
+              type: terms
+              taxonomies:
+                - students
+              display: Students
+              mode: select
+              max_items: 10
+          -
+            handle: teachers
+            field:
+              type: terms
+              taxonomies:
+                - teachers
+              display: Teachers
+              mode: select
+              max_items: 3
+          -
+            handle: subjects
+            field:
+              type: terms
+              taxonomies:
+                - subjects
+              display: Subjects
+              mode: select
+              max_items: 5
+title: Activity

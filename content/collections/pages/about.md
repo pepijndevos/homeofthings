@@ -7,39 +7,49 @@ updated_at: 1718809706
 template: page
 parent: home
 ---
-It seems like every time I want to buy a new appliance I spend days researching options that don't live stream my whereabouts onto the internet but provide modern affordances. What if I publish my research, sell products I believe in, and develop new products to fill gaps in the market? The plan:
+Welcome to our Democratic Learning Tracker - a comprehensive system for documenting, tracking, and celebrating the educational journey of students in our democratic school environment.
 
-![Review IoT devices, Build an IoT privacy database, Resell good products, Develop new devices, Local IoT becomes the norm](/assets/content/dominos.jpg)
+### Our Philosophy
 
-### Review IoT devices
+Democratic education recognizes that learning happens everywhere, in every moment, through every interaction. Students learn through self-directed exploration, collaborative projects, formal lessons, and countless informal exchanges. Our tracking system captures this rich tapestry of educational experiences.
 
-Produce Videos and articles that test and review IoT devices in terms of privacy and reliability. The HoT testing criteria include:
+### What We Track
 
-- Does it work locally without any mandatory cloud, app, account, or subscription? Does it keep working when the internet is down or the company goes out of business?
-- Does the "dumb" functionality work independently of any smart integration? Does the doorbell still ring if the WiFi is down or my phone is off?
-- How easy is it to set up? Will it be automatically detected, or do I need to fiddle for days with unofficial extensions and config files?
-- What does their privacy policy say if you do use their cloud service? What do they collect? How is it encrypted? Will they sell it to data brokers? Are they subject to search warrants? Has their code been audited?
+- **Student Activities**: Every learning moment, from structured lessons to spontaneous discoveries
+- **Cross-curricular Learning**: How subjects interconnect and support each other
+- **Teacher Involvement**: Collaborative teaching and mentoring across disciplines  
+- **Student Agency**: Self-directed learning paths and personal interests
+- **Learning Outcomes**: Skills developed, knowledge gained, and growth achieved
 
-### Build an IoT privacy database
+### How It Works
 
-Collect the reviewed products into a searchable database, and take contributions from the community. Together we can take the chore out of finding devices that meet your needs.
+Teachers and students document activities as they happen, creating a living record of learning. Each activity entry includes:
 
-I recognize that one person's private home automation is another's privacy nightmare. For some a cloud service is fine if they have a good privacy policy, some just want to keep the data within the house, some want strict access control, and some may want to completely air-gap everything. The HoT database has you covered.
+- **Participants**: Which students and teachers were involved
+- **Subjects**: What areas of learning were explored
+- **Duration & Context**: When and how long learning took place
+- **Detailed Notes**: Rich descriptions of what happened and what was learned
+- **Reflection**: Insights about progress, challenges, and next steps
 
-### Resell good products
+### Benefits for Students
 
-With a database of good products in hand, we can help you acquire these products.
+- **Portfolio Development**: A comprehensive record of learning experiences
+- **Learning Reflection**: Opportunities to see patterns and growth over time  
+- **Goal Setting**: Data-driven insights for planning future learning
+- **Celebration**: Recognition of all forms of learning and achievement
 
-Add affiliate links to shops that sell the product in the database. You get a good product, the merchant gets your business, and we get a small commission for running this website.
+### Benefits for Teachers
 
-Launch our own webshop to become your one-stop-shop for a private smart home. With a commitment to strict transparency and separation between the database as a community service and webshop as a commercial endeavor.
+- **Individual Support**: Detailed insights into each student's learning journey
+- **Curriculum Planning**: Understanding of student interests and needs
+- **Collaboration**: Visibility into cross-curricular connections and opportunities
+- **Assessment**: Rich, authentic evidence of student learning and development
 
-### Develop new devices
+### Benefits for Families
 
-Use the income from the shop, the knowledge from the database, and input from the community to identify and develop new IoT devices that fill a gap in the market.
+- **Transparency**: Clear visibility into daily learning experiences
+- **Communication**: Rich context for conversations about school and learning
+- **Progress Tracking**: Evidence of growth across multiple dimensions
+- **Partnership**: Opportunities to support and extend learning at home
 
-I'm an experienced software and electrical engineer who has launched several products, and I can't wait to turn my DIY hacks into products that normal people can actually use.
-
-### Local IoT becomes the norm
-
-My grand vision for the future is that a local first smart home becomes a reality for everyone. It shouldn't require days of research and fiddling to set up a smart home that respects your privacy. Let's build that future.
+Our democratic learning tracker honors the complexity and richness of human learning, providing tools to document, understand, and celebrate the educational journey of every student.

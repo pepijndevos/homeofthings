@@ -1,0 +1,64 @@
+<div class="max-w-5xl mx-auto relative mt-16 content">
+    <article class="py-5 md:grid grid-cols-3 gap-4">
+        <h1 class="col-span-3">{{ title }}</h1>
+        
+        <div>
+            <div class="activity-details">
+                <div class="text-lg font-bold mb-4">Activity Details</div>
+                <table>
+                    <tr>
+                        <td class="pr-4 font-semibold">Date</td>
+                        <td>{{ date format="M j, Y" }}</td>
+                    </tr>
+                    {{ if duration }}
+                    <tr>
+                        <td class="pr-4 font-semibold">Duration</td>
+                        <td>{{ duration }} minutes</td>
+                    </tr>
+                    {{ /if }}
+                    {{ if students }}
+                    <tr>
+                        <td class="pr-4 font-semibold">Students</td>
+                        <td>
+                        {{ students }}
+                            <a href="/students/{{ slug }}" class="text-blue-600 hover:underline">{{ title }}</a>{{ unless last }}, {{ /unless }}
+                        {{ /students }}
+                        </td>
+                    </tr>
+                    {{ /if }}
+                    {{ if teachers }}
+                    <tr>
+                        <td class="pr-4 font-semibold">Teachers</td>
+                        <td>
+                        {{ teachers }}
+                            <a href="/teachers/{{ slug }}" class="text-green-600 hover:underline">{{ title }}</a>{{ unless last }}, {{ /unless }}
+                        {{ /teachers }}
+                        </td>
+                    </tr>
+                    {{ /if }}
+                    {{ if subjects }}
+                    <tr>
+                        <td class="pr-4 font-semibold">Subjects</td>
+                        <td>
+                        {{ subjects }}
+                            <a href="/subjects/{{ slug }}" class="text-purple-600 hover:underline">{{ title }}</a>{{ unless last }}, {{ /unless }}
+                        {{ /subjects }}
+                        </td>
+                    </tr>
+                    {{ /if }}
+                </table>
+                
+                {{ if notes }}
+                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                    <div class="text-lg font-bold mb-2">Teacher Notes</div>
+                    <p class="text-gray-700">{{ notes }}</p>
+                </div>
+                {{ /if }}
+            </div>
+        </div>
+        
+        <div class="content col-span-2">
+            {{ content | widont }}
+        </div>
+    </article>
+</div>

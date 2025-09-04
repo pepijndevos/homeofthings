@@ -1,0 +1,10 @@
+title: Students
+handle: students
+preview_targets:
+  -
+    label: Term
+    url: '{permalink}'
+    refresh: true
+template: students/index
+term_template: students/show
+layout: layout

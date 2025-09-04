@@ -1,0 +1,10 @@
+title: Teachers
+handle: teachers
+preview_targets:
+  -
+    label: Term
+    url: '{permalink}'
+    refresh: true
+template: teachers/index
+term_template: teachers/show
+layout: layout

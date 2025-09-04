@@ -1,0 +1,10 @@
+title: Subjects
+handle: subjects
+preview_targets:
+  -
+    label: Term
+    url: '{permalink}'
+    refresh: true
+template: subjects/index
+term_template: subjects/show
+layout: layout

@@ -1,0 +1,117 @@
+<nav class="max-w-5xl mx-auto relative">
+    <ul class="bg-gray-100 py-3 px-3">
+        <li class="block mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-12">
+            <a href="/activities">All activities</a>
+        </li>
+        <li class="block mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-12">
+            <a href="/students">Students</a>
+        </li>
+        <li class="block mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-12">
+            <a href="/teachers">Teachers</a>
+        </li>
+        <li class="block mt-4 lg:inline-block text-gray-600 hover:text-gray-800 lg:mt-0 mr-12">
+            <a href="/subjects">Subjects</a>
+        </li>
+    </ul>
+</nav>
+<div class="max-w-5xl mx-auto relative mt-16">
+    <article class="py-5">
+        <header class="content mb-16">
+            <h1>{{ title }}</h1>
+            {{ content | widont }}
+        </header>
+
+        {{ taxkeys = [] }}
+        <form class="flex gap-4 mb-16 flex-wrap">
+            <div>
+                <input type="submit" value="Filter"
+                    class="bg-teal hover:bg-teal-light text-white font-bold py-2 px-4 rounded" />
+            </div>
+            {{ partial:taxbox taxslug="students" taxtitle="Students" }}
+            {{ partial:taxbox taxslug="teachers" taxtitle="Teachers" }}
+            {{ partial:taxbox taxslug="subjects" taxtitle="Subjects" }}
+        </form>
+
+        {{ collection:activities as="activities" paginate="15" sort="date:desc"
+           taxonomy:students="{taxkeys["students"]}"
+           taxonomy:teachers="{taxkeys["teachers"]}"
+           taxonomy:subjects="{taxkeys["subjects"]}" }}
+        {{ if no_results }}
+        <h2 class="text-2xl italic tracking-tight">No activities match your query.</h2>
+        {{ /if }}
+
+        <div class="space-y-6">
+            {{ activities }}
+            <div class="border-l-4 border-blue-500 bg-blue-50 p-6 rounded-r-lg">
+                <div class="flex justify-between items-start mb-4">
+                    <h2 class="text-xl font-semibold">
+                        <a href="{{ url }}" class="hover:text-blue-600">
+                            {{ title | widont }}
+                        </a>
+                    </h2>
+                    <time class="text-gray-500 text-sm">{{ date format="M j, Y" }}</time>
+                </div>
+                
+                <div class="flex gap-6 text-sm text-gray-600 mb-4">
+                    {{ if students }}
+                    <div>
+                        <span class="font-semibold">Students:</span>
+                        {{ students }}
+                            <a href="/students/{{ slug }}" class="text-blue-600 hover:underline">{{ title }}</a>{{ unless last }}, {{ /unless }}
+                        {{ /students }}
+                    </div>
+                    {{ /if }}
+                    
+                    {{ if teachers }}
+                    <div>
+                        <span class="font-semibold">Teachers:</span>
+                        {{ teachers }}
+                            <a href="/teachers/{{ slug }}" class="text-green-600 hover:underline">{{ title }}</a>{{ unless last }}, {{ /unless }}
+                        {{ /teachers }}
+                    </div>
+                    {{ /if }}
+                    
+                    {{ if subjects }}
+                    <div>
+                        <span class="font-semibold">Subjects:</span>
+                        {{ subjects }}
+                            <a href="/subjects/{{ slug }}" class="text-purple-600 hover:underline">{{ title }}</a>{{ unless last }}, {{ /unless }}
+                        {{ /subjects }}
+                    </div>
+                    {{ /if }}
+                </div>
+                
+                {{ if duration }}
+                <div class="text-sm text-gray-600 mb-4">
+                    <span class="font-semibold">Duration:</span> {{ duration }} minutes
+                </div>
+                {{ /if }}
+                
+                {{ if notes }}
+                <div class="text-sm italic text-gray-700 mb-4">
+                    "{{ notes | truncate:150 }}"
+                </div>
+                {{ /if }}
+                
+                <div class="text-gray-700">
+                    {{ content | strip_tags | truncate:200 }}
+                </div>
+            </div>
+            {{ /activities }}
+        </div>
+
+        {{ paginate }}
+        {{ if prev_page || next_page }}
+        <div class="flex justify-between text-xl -mx-16 pt-16 font-bold">
+            <a href="{{ prev_page }}" class="{{ ! prev_page ?= 'opacity-25' }}">
+                &larr; Previous
+            </a>
+            <a href="{{ next_page }}" class="{{ ! next_page ?= 'opacity-25' }}">
+                Next &rarr;
+            </a>
+        </div>
+        {{ /if }}
+        {{ /paginate }}
+        {{ /collection:activities }}
+    </article>
+</div>
