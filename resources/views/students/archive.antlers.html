@@ -49,12 +49,6 @@
         }}
     {{ /if }}
     
-    <!-- Debug: Show constructed dates -->
-    <div class="bg-blue-100 p-2 mb-4 text-xs">
-        Since: {{ since_date }}<br>
-        Until: {{ until_date }}
-    </div>
-    
     {{ collection:activities 
         taxonomy:students="{{ slug }}"
         since="{{ since_date }}" 
